@@ -32,7 +32,12 @@ class Programme
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date;
+    private $startDate;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $endDate;
 
     /**
      * @ORM\Column(type="integer")
@@ -88,6 +93,18 @@ class Programme
     public function setMaxParticipants(int $maxParticipants): self
     {
         $this->maxParticipants = $maxParticipants;
+
+        return $this;
+    }
+
+    public function getEndDate(): ?\DateTimeInterface
+    {
+        return $this->endDate;
+    }
+
+    public function setEndDate(\DateTimeInterface $endDate): self
+    {
+        $this->endDate = $endDate;
 
         return $this;
     }
