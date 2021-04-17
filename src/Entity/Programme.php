@@ -73,14 +73,14 @@ class Programme
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getStartDate(): ?\DateTimeInterface
     {
-        return $this->date;
+        return $this->startDate;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setStartDate(\DateTimeInterface $startDate): self
     {
-        $this->date = $date;
+        $this->startDate = $startDate;
 
         return $this;
     }
