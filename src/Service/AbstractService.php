@@ -4,17 +4,16 @@
 namespace App\Service;
 
 
-use App\Entity\Admin;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class AdminService
+class AbstractService
 {
     private $managerRegistry;
     private $normalizer;
 
     /**
-     * AdminService constructor.
+     * AdminGetService constructor.
      * @param ManagerRegistry $managerRegistry
      * @param NormalizerInterface $normalizer
      */
@@ -24,13 +23,19 @@ class AdminService
         $this->normalizer = $normalizer;
     }
 
-    public function get(int $id): ?array {
-        $admin = $this->managerRegistry
-            ->getRepository(Admin::class)
-            ->find($id);
+    /**
+     * @return ManagerRegistry
+     */
+    public function getManagerRegistry(): ManagerRegistry
+    {
+        return $this->managerRegistry;
+    }
 
-        //TODO catch the exception
-        $admin = $this->normalizer->normalize($admin);
-        return $admin;
+    /**
+     * @return NormalizerInterface
+     */
+    public function getNormalizer(): NormalizerInterface
+    {
+        return $this->normalizer;
     }
 }

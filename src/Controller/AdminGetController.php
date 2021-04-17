@@ -2,21 +2,21 @@
 
 namespace App\Controller;
 
-use App\Service\AdminService;
+use App\Service\AdminGetService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AdminController extends AbstractController
+class AdminGetController extends AbstractController
 {
     private $adminService;
 
     /**
-     * AdminController constructor.
-     * @param AdminService $adminService
+     * AdminGetController constructor.
+     * @param AdminGetService $adminService
      */
-    public function __construct(AdminService $adminService)
+    public function __construct(AdminGetService $adminService)
     {
         $this->adminService = $adminService;
     }
