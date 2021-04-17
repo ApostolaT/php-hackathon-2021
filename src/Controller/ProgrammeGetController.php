@@ -30,9 +30,9 @@ class ProgrammeGetController extends AbstractController
      */
     public function getProgramme(int $id): Response
     {
-        $admin = $this->programmeGetService->get($id);
+        $programme = $this->programmeGetService->get($id);
         return new JsonResponse([
-            'programme' => $admin
+            'programme' => $programme
         ]);
     }
 }

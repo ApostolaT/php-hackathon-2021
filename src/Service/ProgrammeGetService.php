@@ -9,12 +9,12 @@ use App\Entity\Programme;
 class ProgrammeGetService extends AbstractService
 {
     public function get(int $id): ?array {
-        $admin = $this->getManagerRegistry()
+        $programme = $this->getManagerRegistry()
             ->getRepository(Programme::class)
             ->find($id);
 
         //TODO catch the exception
-        $admin = $this->getNormalizer()->normalize($admin);
-        return $admin;
+        $programme = $this->getNormalizer()->normalize($programme);
+        return $programme;
     }
 }
