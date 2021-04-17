@@ -1,0 +1,2 @@
+INSERT INTO admin VALUES (1, "token1", "Alexei Postolachi"), (2, "token2", "Malcom X"), (3, "token3", "James Bond"),
+                        (4, "token4", "Martin Luther King");
