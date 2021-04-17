@@ -50,34 +50,4 @@ class ProgrammeType
 
         return $this;
     }
-
-    /**
-     * @return Collection|Programme[]
-     */
-    public function getProgrammes(): Collection
-    {
-        return $this->programmes;
-    }
-
-    public function addProgramme(Programme $programme): self
-    {
-        if (!$this->programmes->contains($programme)) {
-            $this->programmes[] = $programme;
-            $programme->setProgrammeType($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProgramme(Programme $programme): self
-    {
-        if ($this->programmes->removeElement($programme)) {
-            // set the owning side to null (unless already changed)
-            if ($programme->getProgrammeType() === $this) {
-                $programme->setProgrammeType(null);
-            }
-        }
-
-        return $this;
-    }
 }

@@ -1,2 +1,8 @@
 INSERT INTO admin VALUES (1, "token1", "Alexei Postolachi"), (2, "token2", "Malcom X"), (3, "token3", "James Bond"),
                         (4, "token4", "Martin Luther King");
+
+INSERT INTO room (name) VALUES ("Kizumba Hall"), ("Dragon Fighters room"), ("Defence against dark arts hallway"),
+                        ("Herbology GreenHouse"), ("Potions Barracks"), ("Transfiguration attic");
+
+INSERT INTO programme_type (name) VALUES ("Kizumba"), ("Dragon Fighting"), ("Defence against dark arts"),
+                        ("Herbology"), ("Potions"), ("Transfiguration");
