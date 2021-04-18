@@ -6,7 +6,7 @@ namespace App\Service;
 
 use App\Entity\Programme;
 
-class ProgrammeGetService extends AbstractService
+class ProgrammeGetService extends AbstractGetService
 {
     public function get(int $id): ?array {
         $programme = $this->getManagerRegistry()

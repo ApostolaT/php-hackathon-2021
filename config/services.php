@@ -2,7 +2,9 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+
 
 return function(ContainerConfigurator $configurator) {
     $services = $configurator->services()
@@ -18,6 +20,7 @@ return function(ContainerConfigurator $configurator) {
 
     $services->set('object_normalizer', ObjectNormalizer::class)
         ->tag('serializer.normalizer');
+
+    $services->set('object_encoder', JsonEncoder::class)
+        ->tag('serializer.encoder');
 };
-
-

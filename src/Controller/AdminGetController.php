@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\AdminGetService;
+use App\Service\AdminGetGetService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,9 +14,9 @@ class AdminGetController extends AbstractController
 
     /**
      * AdminGetController constructor.
-     * @param AdminGetService $adminService
+     * @param AdminGetGetService $adminService
      */
-    public function __construct(AdminGetService $adminService)
+    public function __construct(AdminGetGetService $adminService)
     {
         $this->adminService = $adminService;
     }

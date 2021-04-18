@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\RoomGetService;
+use App\Service\RoomGetGetService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,9 +14,9 @@ class RoomGetController extends AbstractController
 
     /**
      * AdminGetController constructor.
-     * @param RoomGetService $roomGetService
+     * @param RoomGetGetService $roomGetService
      */
-    public function __construct(RoomGetService $roomGetService)
+    public function __construct(RoomGetGetService $roomGetService)
     {
         $this->roomGetService = $roomGetService;
     }

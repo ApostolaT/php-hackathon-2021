@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ProgrammeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Ignore;
 
 /**
  * @ORM\Entity(repositoryClass=ProgrammeRepository::class)
@@ -21,7 +22,7 @@ class Programme
      * @ORM\ManyToOne(targetEntity=ProgrammeType::class, inversedBy="programmes")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $Programme_Type;
+    private $programmeType;
 
     /**
      * @ORM\ManyToOne(targetEntity=Room::class, inversedBy="programmes")
@@ -51,12 +52,12 @@ class Programme
 
     public function getProgrammeType(): ?ProgrammeType
     {
-        return $this->Programme_Type;
+        return $this->programmeType;
     }
 
-    public function setProgrammeType(?ProgrammeType $Programme_Type): self
+    public function setProgrammeType(?ProgrammeType $programmeType): self
     {
-        $this->Programme_Type = $Programme_Type;
+        $this->programmeType = $programmeType;
 
         return $this;
     }

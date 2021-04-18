@@ -7,7 +7,7 @@ namespace App\Service;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
-class AbstractService
+class AbstractGetService
 {
     private $managerRegistry;
     private $normalizer;

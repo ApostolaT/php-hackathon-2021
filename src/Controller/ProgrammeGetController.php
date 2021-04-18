@@ -32,7 +32,7 @@ class ProgrammeGetController extends AbstractController
     {
         $programme = $this->programmeGetService->get($id);
         return new JsonResponse([
-            'programme' => $programme
+            $programme
         ]);
     }
 }

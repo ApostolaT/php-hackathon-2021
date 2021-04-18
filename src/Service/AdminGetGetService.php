@@ -6,7 +6,7 @@ namespace App\Service;
 
 use App\Entity\Admin;
 
-class AdminGetService extends AbstractService
+class AdminGetGetService extends AbstractGetService
 {
     public function get(int $id): ?array {
         $admin = $this->getManagerRegistry()
