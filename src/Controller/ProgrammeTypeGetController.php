@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\ProgrammeTypeGetGetService;
+use App\Service\ProgrammeTypeGetService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,9 +14,9 @@ class ProgrammeTypeGetController extends AbstractController
 
     /**
      * programmeTypeGetServiceGetController constructor.
-     * @param ProgrammeTypeGetGetService $programmeTypeGetService
+     * @param ProgrammeTypeGetService $programmeTypeGetService
      */
-    public function __construct(ProgrammeTypeGetGetService $programmeTypeGetService)
+    public function __construct(ProgrammeTypeGetService $programmeTypeGetService)
     {
         $this->programmeTypeGetService = $programmeTypeGetService;
     }

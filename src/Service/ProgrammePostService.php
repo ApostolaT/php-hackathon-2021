@@ -17,7 +17,7 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
 
-class ProgrammePostGetService extends AbstractPostService
+class ProgrammePostService extends AbstractInsertionService
 {
     /**
      * @var ProgrammeMapper
@@ -25,7 +25,7 @@ class ProgrammePostGetService extends AbstractPostService
     private $programmeMapper;
 
     /**
-     * ProgrammePostGetService constructor.
+     * ProgrammePostService constructor.
      * @param ManagerRegistry $managerRegistry
      * @param DecoderInterface $decoder
      * @param NormalizerInterface $normalizer
@@ -41,17 +41,20 @@ class ProgrammePostGetService extends AbstractPostService
         // Could not figure out why DI is not working properly.
         //$programmeDTO = $this->getSerializer()->deserialize($programme, ProgrammeDTO::class, 'json');
         //$serializer = new Serializer([$this->getNormalizer()], [$this->getDecoder()]);
+        //TODO incorporate checkings
+        $roomRepo = $this->getManagerRegistry()->getRepository(Room::class);
+        $programmeTypeRepo = $this->getManagerRegistry()->getRepository(ProgrammeType::class);
+        $programmeRepo = $this->getManagerRegistry()->getManager();
+
 
         $serializer = new Serializer([new ObjectNormalizer()], [new JsonEncoder()]);
         $programmeDTO = $serializer->deserialize($programme, ProgrammeDTO::class, 'json');
         $programme = $this->programmeMapper->toProgramme($programmeDTO);
-        $roomRepo  = $this->getManagerRegistry()->getRepository(Room::class);
-        $programmeTypeRepo = $this->getManagerRegistry()->getRepository(ProgrammeType::class);
+
         $room = $roomRepo->find($programmeDTO->getRoom());
         $programmeType = $programmeTypeRepo->find($programmeDTO->getProgrammeType());
         $programme->setRoom($room);
         $programme->setProgrammeType($programmeType);
-        $programmeRepo = $this->getManagerRegistry()->getManager();
         $programmeRepo->persist($programme);
         $programmeRepo->flush();
     }

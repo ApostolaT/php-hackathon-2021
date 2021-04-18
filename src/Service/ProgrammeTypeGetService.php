@@ -6,7 +6,7 @@ namespace App\Service;
 
 use App\Entity\ProgrammeType;
 
-class ProgrammeTypeGetGetService extends AbstractGetService
+class ProgrammeTypeGetService extends AbstractGetService
 {
     public function get(int $id): ?array
     {

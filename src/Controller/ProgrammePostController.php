@@ -4,9 +4,7 @@
 namespace App\Controller;
 
 
-use App\DTO\ProgrammeDTO;
-use App\Entity\Programme;
-use App\Service\ProgrammePostGetService;
+use App\Service\ProgrammePostService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,9 +16,9 @@ class ProgrammePostController extends AbstractController
 
     /**
      * ProgrammePostController constructor.
-     * @param ProgrammePostGetService $programmePostService
+     * @param ProgrammePostService $programmePostService
      */
-    public function __construct(ProgrammePostGetService $programmePostService)
+    public function __construct(ProgrammePostService $programmePostService)
     {
         $this->programmePostService = $programmePostService;
     }

@@ -6,7 +6,7 @@ namespace App\Service;
 
 use App\Entity\Room;
 
-class RoomGetGetService extends AbstractGetService
+class RoomGetService extends AbstractGetService
 {
     public function get(int $id): ?array {
         $room = $this->getManagerRegistry()
