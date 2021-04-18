@@ -5,7 +5,6 @@ namespace App\Service;
 
 
 use App\DTO\ProgrammeDTO;
-use App\Entity\Programme;
 use App\Entity\ProgrammeType;
 use App\Entity\Room;
 use App\Mapper\ProgrammeMapper;
@@ -15,7 +14,6 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\SerializerInterface;
 
 class ProgrammePostService extends AbstractInsertionService
 {

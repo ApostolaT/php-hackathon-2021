@@ -25,7 +25,6 @@ class UserMapper
     }
 
     public function toUser(UserDTO $userDTO): User {
-        var_dump($userDTO);
         return $this->userFactory->toUser($userDTO);
     }
 }
