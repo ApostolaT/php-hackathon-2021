@@ -32,5 +32,4 @@ class ProgrammeFactory
 
         return $this->programmeBuilder->getProgramme();
     }
-
 }

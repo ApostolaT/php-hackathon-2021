@@ -31,8 +31,12 @@ class ProgrammePostService extends AbstractInsertionService
      * @param NormalizerInterface $normalizer
      * @param ProgrammeMapper $programmeMapper
      */
-    public function __construct(ManagerRegistry $managerRegistry, DecoderInterface $decoder, NormalizerInterface $normalizer, ProgrammeMapper $programmeMapper)
-    {
+    public function __construct(
+        ManagerRegistry $managerRegistry,
+        DecoderInterface $decoder,
+        NormalizerInterface $normalizer,
+        ProgrammeMapper $programmeMapper
+    ){
         parent::__construct($managerRegistry, $decoder, $normalizer);
         $this->programmeMapper = $programmeMapper;
     }
@@ -41,13 +45,12 @@ class ProgrammePostService extends AbstractInsertionService
         // Could not figure out why DI is not working properly.
         //$programmeDTO = $this->getSerializer()->deserialize($programme, ProgrammeDTO::class, 'json');
         //$serializer = new Serializer([$this->getNormalizer()], [$this->getDecoder()]);
+        $serializer = new Serializer([new ObjectNormalizer()], [new JsonEncoder()]);
         //TODO incorporate checkings
         $roomRepo = $this->getManagerRegistry()->getRepository(Room::class);
         $programmeTypeRepo = $this->getManagerRegistry()->getRepository(ProgrammeType::class);
         $programmeRepo = $this->getManagerRegistry()->getManager();
 
-
-        $serializer = new Serializer([new ObjectNormalizer()], [new JsonEncoder()]);
         $programmeDTO = $serializer->deserialize($programme, ProgrammeDTO::class, 'json');
         $programme = $this->programmeMapper->toProgramme($programmeDTO);
 
