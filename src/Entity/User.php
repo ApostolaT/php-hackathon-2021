@@ -86,16 +86,6 @@ class User
         return $this;
     }
 
-    //Ignore not working so I just decided to not comment it, but would like to elaborate on this for future
-//    /**
-//     * @Ignore()
-//     * @return Collection|Programme[]
-//     */
-//    public function getProgrammes(): Collection
-//    {
-//        return $this->programmes;
-//    }
-
     public function addProgramme(Programme $programme): self
     {
         if (!$this->programmes->contains($programme)) {
