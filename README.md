@@ -14,14 +14,19 @@ You have estimated it takes 4 weeks to build this solution. You have 2 days. Goo
 ## Technical documentation
 ### Data and Domain model
 A full list of entities used in my project: https://docs.google.com/document/d/1JPGmd6FMSLgWUS3LWyC9vdJQPocMWLvk5RAGgsx0Zi4/edit?usp=sharing
+
 ####The Admin 
 Admin entity is the representation of Admin actor. Admin must be able to create, delete and update programmes. An important thing about the admin is that it has a token stored in the database that allows us to make operations on programmes.
+
 ####User
 User entity is the client that will be able to subscribe to programmes. User has a CNP field, cnp is here to replace the registration forms. So on creation my program checks for CNP validation that will make sure the user has valid data in his account.
+
 ####Programme Type
 Programme Type is the entity that will separate preogrammes by type.
+
 ####Room
 Room is the entity that stores information about the rooms, so we can use separate rooms for different programmes.
+
 ####Programme
 Programme is the event created by an admin. Programme has a OneToOne relation with programme_type and room, because one event can happen in one room and it can hold just one programme_type action.
 Another relation that it contains is a ManyToMany relation with Users, because many users can subscribe for many events.
@@ -42,14 +47,21 @@ For each of the following functionalities, please tick the box if you implemente
 
 ####Brew Coffe
 Input: black coffe + milk
+
 ####Create programme
 Json input: roomID, programmeTypeID, startData in a ISO DateTime format, maxParticipants and endData in a ISO DateTime.
+
 ####Delete programme
 Input: request parameter equal to the ID of the programme that needs to be deleted.
+
 ####Book a programme
 Input: request parameter = id of the programme and JsonInput for the ID of the user that wants to sign in for the programme.
-##### Business rules
 
+##### Business rules
+CNP validator : done
+Before creation of users check if the user is laready in the database : not yet
+Token validation -> check if token is in the database : not yet
+On User booking a programme a mechanism that will check if the room is not full : done
 
 ##### 3rd party libraries (if applicable)
 symfony/orm-pack & --dev symfony/maker-bundle used for easier work with database. In my specific project I used annotations for creating relations between tables. Also used the doctrine to make migrations.
