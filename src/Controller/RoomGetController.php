@@ -28,9 +28,9 @@ class RoomGetController extends AbstractController
      */
     public function getRoom(int $id): Response
     {
-        $roomGetService = $this->roomGetService->get($id);
+        $room = $this->roomGetService->get($id);
         return new JsonResponse([
-            'room' => $roomGetService
+            'room' => $room
         ]);
     }
 }

@@ -10,3 +10,7 @@ INSERT INTO programme_type (name) VALUES ("Kizumba"), ("Dragon Fighting"), ("Def
 INSERT INTO `programme` (`id`, `programme_type_id`, `room_id`, `start_date`, `max_participants`, `end_date`)
 VALUES (NULL, '4', '4', '2021-04-18 10:00:00', '15', '2021-04-18 12:00:00'),
         (NULL, '5', '5', '2021-04-18 14:00:00', '20', '2021-04-18 16:00:00');
+
+INSERT INTO `user` (`id`, `name`, `cnp`)
+VALUES (NULL, 'Alexei Postolachi', '5210408018711'),
+        (NULL, 'Harry Potter', '5210413066054');
