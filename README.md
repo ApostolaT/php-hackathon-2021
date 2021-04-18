@@ -84,13 +84,12 @@ Manual testing only. Did not have enough time to implent automated testing
 ## Feedback
 In this section, please let us know what is your opinion about this experience and how we can improve it:
 
-1. Have you ever been involved in a similar experience? If so, how was this one different?
-2. Do you think this type of selection process is suitable for you?
-3. What's your opinion about the complexity of the requirements?
-4. What did you enjoy the most?
-5. What was the most challenging part of this anti hackathon?
-6. Do you think the time limit was suitable for the requirements?
-7. Did you find the resources you were sent on your email useful?
-8. Is there anything you would like to improve to your current implementation?
-9. What would you change regarding this anti hackathon?
-
+1. Have you ever been involved in a similar experience? If so, how was this one different? This is the firs time for sure.
+2. Do you think this type of selection process is suitable for you? I think it is because it is gives has a better teaching curve attached to it.
+3. What's your opinion about the complexity of the requirements? I would say it is easy to make a funcitonal variant but can be N times harde depending on the goal of the develope.
+4. What did you enjoy the most? Coding part of it :)
+5. What was the most challenging part of this anti hackathon? When you encounter a problem that you don't have enough experience to fix, so you are stuck for a very long time on it. For me it was a technical problem.
+6. Do you think the time limit was suitable for the requirements? Give it one more day and everybody will finish everything. Good timing for natural selection.
+7. Did you find the resources you were sent on your email useful? Yes from a technical point of view. From architectural point of view there was nothing.
+8. Is there anything you would like to improve to your current implementation? Yes, fix dependency injection problems with the serializer. Include a token service that would encode, decode tokens and checl their presence in the database. Make date persistance service that would check for date consistencies. Make it more polished overall.
+9. What would you change regarding this anti hackathon? More calls with the trainers.
