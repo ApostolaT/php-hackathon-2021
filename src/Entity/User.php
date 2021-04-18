@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,16 @@ class User
      * @ORM\Column(type="string", length=13)
      */
     private $cnp;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Programme::class, mappedBy="participants")
+     */
+    private $programmes;
+
+    public function __construct()
+    {
+        $this->programmes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,6 +64,33 @@ class User
     public function setCnp(string $cnp): self
     {
         $this->cnp = $cnp;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Programme[]
+     */
+    public function getProgrammes(): Collection
+    {
+        return $this->programmes;
+    }
+
+    public function addProgramme(Programme $programme): self
+    {
+        if (!$this->programmes->contains($programme)) {
+            $this->programmes[] = $programme;
+            $programme->addParticipant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgramme(Programme $programme): self
+    {
+        if ($this->programmes->removeElement($programme)) {
+            $programme->removeParticipant($this);
+        }
 
         return $this;
     }
