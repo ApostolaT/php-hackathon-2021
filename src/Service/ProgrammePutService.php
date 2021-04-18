@@ -46,9 +46,7 @@ class ProgrammePutService extends AbstractInsertionService {
         $programmeDB = $programmeRepo->find(Programme::class, $id);
 
         if ($programmeDB === null) {
-            $programmeDB = $programme;
-
-            $programmeRepo->persist($programmeDB);
+            $programmeRepo->persist($programme);
             $programmeRepo->flush();
 
             return;
