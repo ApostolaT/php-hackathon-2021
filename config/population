@@ -14,3 +14,5 @@ VALUES (NULL, '4', '4', '2021-04-18 10:00:00', '15', '2021-04-18 12:00:00'),
 INSERT INTO `user` (`id`, `name`, `cnp`)
 VALUES (NULL, 'Alexei Postolachi', '5210408018711'),
         (NULL, 'Harry Potter', '5210413066054');
+
+INSERT INTO `programme_user` (`programme_id`, `user_id`) VALUES ('4', '2'), ('1', '1');

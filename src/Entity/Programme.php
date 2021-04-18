@@ -134,6 +134,7 @@ class Programme
     }
 
     /**
+     * @Ignore()
      * @return Collection|User[]
      */
     public function getParticipants(): Collection

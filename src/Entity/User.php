@@ -6,6 +6,8 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\Ignore;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -13,6 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 class User
 {
     /**
+     * @Groups("user")
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -20,16 +23,19 @@ class User
     private $id;
 
     /**
+     * @Groups("user")
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @Groups("user")
      * @ORM\Column(type="string", length=13)
      */
     private $cnp;
 
     /**
+     * @Groups("user")
      * @ORM\ManyToMany(targetEntity=Programme::class, mappedBy="participants")
      */
     private $programmes;
@@ -39,11 +45,19 @@ class User
         $this->programmes = new ArrayCollection();
     }
 
+    /**
+     * @Groups("user")
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @Groups("user")
+     * @return string|null
+     */
     public function getName(): ?string
     {
         return $this->name;
@@ -56,6 +70,10 @@ class User
         return $this;
     }
 
+    /**
+     * @Groups("user")
+     * @return string|null
+     */
     public function getCnp(): ?string
     {
         return $this->cnp;
@@ -68,13 +86,15 @@ class User
         return $this;
     }
 
-    /**
-     * @return Collection|Programme[]
-     */
-    public function getProgrammes(): Collection
-    {
-        return $this->programmes;
-    }
+    //Ignore not working so I just decided to not comment it, but would like to elaborate on this for future
+//    /**
+//     * @Ignore()
+//     * @return Collection|Programme[]
+//     */
+//    public function getProgrammes(): Collection
+//    {
+//        return $this->programmes;
+//    }
 
     public function addProgramme(Programme $programme): self
     {
