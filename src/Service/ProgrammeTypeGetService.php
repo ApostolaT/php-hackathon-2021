@@ -15,7 +15,7 @@ class ProgrammeTypeGetService extends AbstractGetService
             ->find($id);
 
         //TODO catch the exception
-        $programmeType = $this->getNormalizer()->normalize($programmeType);
+        $programmeType = $this->getSerializer()->normalize($programmeType);
         return $programmeType;
     }
 }

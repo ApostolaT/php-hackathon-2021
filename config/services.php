@@ -2,8 +2,11 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use App\Service\ProgrammeUserPostService;
+use Symfony\Component\Serializer\Serializer;
+
+//use Symfony\Component\Serializer\Encoder\JsonEncoder;
+//use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 
 return function(ContainerConfigurator $configurator) {
@@ -18,9 +21,12 @@ return function(ContainerConfigurator $configurator) {
 
     $services->load("App\\Controller\\", '../src/Controller');
 
-    $services->set('object_normalizer', ObjectNormalizer::class)
-        ->tag('serializer.normalizer');
+//    $services->set('program_user_post_service', ProgrammeUserPostService::class)
+//        ->arg('$serializer', service('serializer'));
 
-    $services->set('object_encoder', JsonEncoder::class)
-        ->tag('serializer.encoder');
+//    $services->set('object_normalizer', ObjectNormalizer::class)
+//        ->tag('serializer.normalizer');
+//
+//    $services->set('object_encoder', JsonEncoder::class)
+//        ->tag('serializer.encoder');
 };

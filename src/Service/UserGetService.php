@@ -21,7 +21,7 @@ class UserGetService extends AbstractGetService
             ->find($id);
 
         //TODO catch the exception
-        $user = $this->getNormalizer()->normalize($user);
+        $user = $this->getSerializer()->normalize($user);
         return $user;
     }
 }

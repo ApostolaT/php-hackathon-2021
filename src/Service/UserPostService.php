@@ -40,7 +40,7 @@ class UserPostService extends AbstractInsertionService
         UserMapper $userMapper,
         CNPValidator $cnpValidator
     ){
-        parent::__construct($managerRegistry, $decoder, $normalizer);
+        parent::__construct($managerRegistry, $normalizer);
         $this->userMapper = $userMapper;
         $this->cnpValidator = $cnpValidator;
     }

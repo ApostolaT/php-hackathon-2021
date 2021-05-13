@@ -35,7 +35,7 @@ class ProgrammePostService extends AbstractInsertionService
         NormalizerInterface $normalizer,
         ProgrammeMapper $programmeMapper
     ){
-        parent::__construct($managerRegistry, $decoder, $normalizer);
+        parent::__construct($managerRegistry, $normalizer);
         $this->programmeMapper = $programmeMapper;
     }
 

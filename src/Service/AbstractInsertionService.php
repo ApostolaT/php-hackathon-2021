@@ -8,6 +8,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Serializer\Encoder\DecoderInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class AbstractInsertionService
 {
@@ -19,15 +20,14 @@ class AbstractInsertionService
     /**
      * AdminGetService constructor.
      * @param ManagerRegistry $managerRegistry
-     * @param DecoderInterface $decoder
-     * @param NormalizerInterface $normalizer
+     * @param SerializerInterface $serializer
      */
-    public function __construct(ManagerRegistry $managerRegistry, DecoderInterface $decoder, NormalizerInterface $normalizer)
+    public function __construct(ManagerRegistry $managerRegistry, SerializerInterface $serializer)
     {
         $this->managerRegistry = $managerRegistry;
-        $this->decoder = $decoder;
-        $this->normalizer = $normalizer;
-        $this->serializer = new Serializer([$this->normalizer], [$this->decoder]);
+//        $this->decoder = $decoder;
+//        $this->normalizer = $normalizer;
+        $this->serializer = $serializer;
     }
 
     /**

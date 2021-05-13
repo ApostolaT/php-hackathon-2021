@@ -14,7 +14,7 @@ class AdminGetService extends AbstractGetService
             ->find($id);
 
         //TODO catch the exception
-        $admin = $this->getNormalizer()->normalize($admin);
+        $admin = $this->getSerializer()->normalize($admin);
         return $admin;
     }
 }

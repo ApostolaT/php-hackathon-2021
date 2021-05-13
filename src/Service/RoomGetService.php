@@ -14,7 +14,7 @@ class RoomGetService extends AbstractGetService
             ->find($id);
 
         //TODO catch the exception
-        $room = $this->getNormalizer()->normalize($room);
+        $room = $this->getSerializer()->normalize($room);
         return $room;
     }
 }

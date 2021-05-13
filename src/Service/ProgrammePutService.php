@@ -31,7 +31,7 @@ class ProgrammePutService extends AbstractInsertionService {
      */
     public function __construct(ManagerRegistry $managerRegistry, DecoderInterface $decoder, NormalizerInterface $normalizer, ProgrammeMapper $programmeMapper)
     {
-        parent::__construct($managerRegistry, $decoder, $normalizer);
+        parent::__construct($managerRegistry, $normalizer);
         $this->programmeMapper = $programmeMapper;
     }
 

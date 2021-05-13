@@ -5,22 +5,22 @@ namespace App\Service;
 
 
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class AbstractGetService
 {
     private $managerRegistry;
-    private $normalizer;
+    private $serializer;
 
     /**
      * AdminGetService constructor.
      * @param ManagerRegistry $managerRegistry
-     * @param NormalizerInterface $normalizer
+     * @param SerializerInterface $serializer
      */
-    public function __construct(ManagerRegistry $managerRegistry, NormalizerInterface $normalizer)
+    public function __construct(ManagerRegistry $managerRegistry, SerializerInterface $serializer)
     {
         $this->managerRegistry = $managerRegistry;
-        $this->normalizer = $normalizer;
+        $this->serializer = $serializer;
     }
 
     /**
@@ -32,10 +32,10 @@ class AbstractGetService
     }
 
     /**
-     * @return NormalizerInterface
+     *
      */
-    public function getNormalizer(): NormalizerInterface
+    public function getSerializer()
     {
-        return $this->normalizer;
+        return $this->serializer;
     }
 }
